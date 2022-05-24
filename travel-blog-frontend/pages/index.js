@@ -1,32 +1,32 @@
-import {getClient} from "../lib/sanity.server.js"
+import { getClient } from "../lib/sanity.server.js"
 import groq from 'groq'
 import Head from 'next/head'
-import Link from 'next/link' 
+import Link from 'next/link'
 import Card from "../components/Card.js"
 
 
 const Home = ({ posts }) => {
   // console.log({ posts })
   return (
-    <div>
+    <div className="dashboard">
       <Head>
         <title>Nomad Travel Blog</title>
-        <meta name="viewport" content="initial-scale=1.0 , width=device-width"/>
-        </Head>
+        <meta name="viewport" content="initial-scale=1.0 , width=device-width" />
+      </Head>
 
-        <div className="posts-container">
-        {posts?.map((post)=>(
+      <div className="posts-container">
+        {posts?.map((post) => (
           <Link
             key={post._id}
             href='google.com'>
-            <Card post={post}/>
+            <Card post={post} />
           </Link>
         ))}
-        </div>
+      </div>
     </div>
   )
 }
-export async function getStaticProps({ preview = false}){
+export async function getStaticProps({ preview = false }) {
   const posts = await getClient(preview).fetch(groq`*[_type == "post" && publishedAt < now()] | order(publishedAt desc){
     _id,
     title,
@@ -38,10 +38,10 @@ export async function getStaticProps({ preview = false}){
     slug,
     publishedAt 
   } `)
-      return {
-        props:{
-          posts,
-        },
-      }
+  return {
+    props: {
+      posts,
+    },
+  }
 }
 export default Home
