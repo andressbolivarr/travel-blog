@@ -16,9 +16,11 @@ const Home = ({ posts }) => {
 
       <div className="posts-container">
         {posts?.map((post) => (
-          <Link
-            key={post._id}
-            href='google.com'>
+          <Link 
+            key={post._id}  
+            href="/posts/[slug]"
+            as={`/posts/${post.slug.current}`}
+            passHref> 
             <Card post={post} />
           </Link>
         ))}
