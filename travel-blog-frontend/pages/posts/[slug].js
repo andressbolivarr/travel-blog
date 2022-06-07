@@ -3,7 +3,7 @@ import Tag from '../../components/Tag'
 import { PortableText } from '@portabletext/react'
 import { urlFor } from '../../lib/sanity'
 import { getClient } from '../../lib/sanity.server'
-
+import Map from '../../components/Map'
 const PostsComponents = {
     types: {
         image: ({ value }) => {
@@ -48,8 +48,7 @@ const Post = ({ post }) => {
                         <PortableText value={about} components={PostsComponents} />
                     </div>
                     <div className='map-container'>
-
-                    </div>
+                            <Map longitude={postedAt.lng} latitude={postedAt.lat}/></div>
                 </div>
             </article>}
         </>
