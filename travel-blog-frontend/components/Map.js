@@ -5,9 +5,7 @@ import { useRef, useEffect } from 'react'
 const  Map = ({ latitude, longitude}) => {
 
 
-    const NEXT_PUBLIC_MAP_API = 'pk.eyJ1Ijoic3R0cmVwaXRvc28iLCJhIjoiY2w0M2JldnZ4MDM1MzNqbzBjZXd2ZmZtZiJ9.OpbRuTYWw_y5vSwDmsjQkg'
-
-    mapboxgl.accessToken = NEXT_PUBLIC_MAP_API
+    mapboxgl.accessToken =  process.env.NEXT_PUBLIC_MAP_API
 
 
         const mapContainer = useRef(null)
