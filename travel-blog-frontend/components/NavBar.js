@@ -7,7 +7,7 @@ const NavBar = () => {
     return(
         <nav className="nav-container">
             <div className="nav-item-container">
-                <Link href="/">
+                <Link href="/" passHref>
                     <Image src={logo}
                     alt="Travel Blog Logo"
                     width={140}

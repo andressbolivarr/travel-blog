@@ -4,11 +4,12 @@ import { PortableText } from '@portabletext/react'
 import { urlFor } from '../../lib/sanity'
 import { getClient } from '../../lib/sanity.server'
 import Map from '../../components/Map'
+import Image from 'next/image'
 const PostsComponents = {
     types: {
         image: ({ value }) => {
             return (
-                <img
+                <Image
                     className='post-image'
                     alt={value.alt || ''}
                     src={urlFor(value)}
@@ -38,7 +39,7 @@ const Post = ({ post }) => {
 
                 <div className='info-container'>
                     <div className='author-container'>
-                        <img
+                        <Image
                             className='avatar'
                             src={urlFor(authorImage).url()}
                             alt={username + ' avatar'}
